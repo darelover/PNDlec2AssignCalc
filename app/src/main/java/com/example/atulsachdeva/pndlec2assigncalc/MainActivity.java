@@ -33,8 +33,42 @@ public class MainActivity extends AppCompatActivity {
                 Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
                 Double inputTwo = Double.parseDouble(tvInputTwo.getText().toString());
 
-                Double result = Double.sum(inputOne,inputTwo);
+                Double result = inputOne + inputTwo;
                 tvResult.setText(result.toString());
+            }
+        });
+        btnSubtract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
+                Double inputTwo = Double.parseDouble(tvInputTwo.getText().toString());
+
+                Double result = inputOne - inputTwo;
+                tvResult.setText(result.toString());
+            }
+        });
+        btnMultiply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
+                Double inputTwo = Double.parseDouble(tvInputTwo.getText().toString());
+
+                Double result = inputOne * inputTwo;
+                tvResult.setText(result.toString());
+            }
+        });
+        btnDivide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
+                Double inputTwo = Double.parseDouble(tvInputTwo.getText().toString());
+
+                if (inputTwo == 0)
+                    tvResult.setText("You cannot divide by Zero");
+                else {
+                    Double result = inputOne / inputTwo;
+                    tvResult.setText(result.toString());
+                }
             }
         });
     }
