@@ -6,12 +6,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import static android.R.drawable.btn_default;
 import static java.lang.Double.sum;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView tvInputOne, tvInputTwo, tvResult;
-    Button btnAdd, btnSubtract, btnMultiply, btnDivide;
+    Button btnAdd, btnSubtract, btnMultiply, btnDivide, btnEquals;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,50 +27,85 @@ public class MainActivity extends AppCompatActivity {
         btnSubtract = (Button) findViewById(R.id.btnSubtract);
         btnMultiply = (Button) findViewById(R.id.btnMultiply);
         btnDivide = (Button) findViewById(R.id.btnDivide);
+        btnEquals = (Button) findViewById(R.id.btnEquals);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
-                Double inputTwo = Double.parseDouble(tvInputTwo.getText().toString());
+                final Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
+                btnAdd.setBackgroundResource(R.color.selectedOperation);
 
-                Double result = inputOne + inputTwo;
-                tvResult.setText(result.toString());
+                btnEquals.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Double inputTwo = Double.parseDouble(tvInputTwo.getText().toString());
+
+                        Double result = inputOne + inputTwo;
+                        tvResult.setText(result.toString());
+                        btnAdd.setBackgroundResource(btn_default);
+                    }
+                });
             }
         });
         btnSubtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
-                Double inputTwo = Double.parseDouble(tvInputTwo.getText().toString());
+                final Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
+                btnAdd.setBackgroundResource(R.color.selectedOperation);
 
-                Double result = inputOne - inputTwo;
-                tvResult.setText(result.toString());
+                btnEquals.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Double inputTwo = Double.parseDouble(tvInputTwo.getText().toString());
+
+                        Double result = inputOne - inputTwo;
+                        tvResult.setText(result.toString());
+                        btnSubtract.setBackgroundResource(btn_default);
+                    }
+                });
             }
         });
         btnMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
-                Double inputTwo = Double.parseDouble(tvInputTwo.getText().toString());
+                final Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
+                btnAdd.setBackgroundResource(R.color.selectedOperation);
 
-                Double result = inputOne * inputTwo;
-                tvResult.setText(result.toString());
+                btnEquals.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Double inputTwo = Double.parseDouble(tvInputTwo.getText().toString());
+
+                        Double result = inputOne * inputTwo;
+                        tvResult.setText(result.toString());
+                        btnMultiply.setBackgroundResource(btn_default);
+                    }
+                });
             }
         });
         btnDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
-                Double inputTwo = Double.parseDouble(tvInputTwo.getText().toString());
+                final Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
+                btnAdd.setBackgroundResource(R.color.selectedOperation);
 
-                if (inputTwo == 0)
-                    tvResult.setText("You cannot divide by Zero");
-                else {
-                    Double result = inputOne / inputTwo;
-                    tvResult.setText(result.toString());
-                }
+                btnEquals.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Double inputTwo = Double.parseDouble(tvInputTwo.getText().toString());
+
+                        if (inputTwo == 0)
+                            tvResult.setText("You cannot divide by Zero");
+                        else {
+                            Double result = inputOne / inputTwo;
+                            tvResult.setText(result.toString());
+                        }
+                        btnDivide.setBackgroundResource(btn_default);
+                    }
+                });
             }
         });
+
+
     }
 }
