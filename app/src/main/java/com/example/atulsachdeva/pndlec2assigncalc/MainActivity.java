@@ -32,12 +32,20 @@ public class MainActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
+
                 btnAdd.setBackgroundResource(R.color.selectedOperation);
+
+                if (tvResult.getText().toString().length() > 0) {
+                    Double result = Double.parseDouble(tvResult.getText().toString());
+                    tvInputOne.setText(result.toString());
+                    tvInputTwo.setText("");
+                    tvResult.setText("");
+                }
 
                 btnEquals.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
                         Double inputTwo = Double.parseDouble(tvInputTwo.getText().toString());
 
                         Double result = inputOne + inputTwo;
@@ -50,12 +58,20 @@ public class MainActivity extends AppCompatActivity {
         btnSubtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
-                btnAdd.setBackgroundResource(R.color.selectedOperation);
+
+                btnSubtract.setBackgroundResource(R.color.selectedOperation);
+
+                if (tvResult.getText().toString().length() > 0) {
+                    Double result = Double.parseDouble(tvResult.getText().toString());
+                    tvInputOne.setText(result.toString());
+                    tvInputTwo.setText("");
+                    tvResult.setText("");
+                }
 
                 btnEquals.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
                         Double inputTwo = Double.parseDouble(tvInputTwo.getText().toString());
 
                         Double result = inputOne - inputTwo;
@@ -68,12 +84,20 @@ public class MainActivity extends AppCompatActivity {
         btnMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
-                btnAdd.setBackgroundResource(R.color.selectedOperation);
+
+                btnMultiply.setBackgroundResource(R.color.selectedOperation);
+
+                if (tvResult.getText().toString().length() > 0) {
+                    Double result = Double.parseDouble(tvResult.getText().toString());
+                    tvInputOne.setText(result.toString());
+                    tvInputTwo.setText("");
+                    tvResult.setText("");
+                }
 
                 btnEquals.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
                         Double inputTwo = Double.parseDouble(tvInputTwo.getText().toString());
 
                         Double result = inputOne * inputTwo;
@@ -86,12 +110,20 @@ public class MainActivity extends AppCompatActivity {
         btnDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
-                btnAdd.setBackgroundResource(R.color.selectedOperation);
+
+                btnDivide.setBackgroundResource(R.color.selectedOperation);
+
+                if (tvResult.getText().toString().length() > 0) {
+                    Double result = Double.parseDouble(tvResult.getText().toString());
+                    tvInputOne.setText(result.toString());
+                    tvInputTwo.setText("");
+                    tvResult.setText("");
+                }
 
                 btnEquals.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        Double inputOne = Double.parseDouble(tvInputOne.getText().toString());
                         Double inputTwo = Double.parseDouble(tvInputTwo.getText().toString());
 
                         if (inputTwo == 0)
